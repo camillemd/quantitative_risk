@@ -10,6 +10,7 @@ setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 # libraries
 library(ggplot2)
 library(reliaR)
+library(tibble)
 
 # set seed for reproducible results 
 set.seed(1)
@@ -30,6 +31,7 @@ left = -6
 right = 12
 data_theo = tibble(x = seq(left, right, 0.1), 
                    y = dnorm(seq(left, right, 0.1), mu, sigma))
+
 ggplot(gaussian, aes(x = normal, y = ..density..)) +
   geom_histogram(bins = 50) +
   geom_line(aes(x = x, y = y), data = data_theo, color = 'red')
@@ -103,8 +105,8 @@ ggsave('./plots/q2Var.png')
 observations = 10000
 samples = 10000
 
-mu = 3
-sigma = 3
+mu = 1
+sigma = 1
 
 norm_max = c()
 exp_max = c()
